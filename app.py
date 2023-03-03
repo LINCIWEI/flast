@@ -1,9 +1,9 @@
-import flask
+
 import sqlite3
 from flask import Flask, render_template
 
 app = Flask(__name__)
-from faker import Faker
+
 db_name = 'bar_data.db'
 @app.route('/')
 def index():
@@ -13,7 +13,7 @@ def type_1():
     conn = sqlite3.connect(db_name)
     conn.row_factory = sqlite3.Row
     cur = conn.cursor()
-    # get results from customers
+
     cur.execute("select * from barlist")
     rows = cur.fetchall()
     conn.close()
@@ -23,7 +23,7 @@ def Size():
     conn = sqlite3.connect(db_name)
     conn.row_factory = sqlite3.Row
     cur = conn.cursor()
-    # get results from customers
+
     cur.execute("select * from barsize")
     rows = cur.fetchall()
     conn.close()
