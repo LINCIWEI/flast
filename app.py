@@ -1,15 +1,32 @@
 import flask
-from flask import Flask
+import sqlite3
+from flask import Flask, render_template
 
 app = Flask(__name__)
 from faker import Faker
-def fstory():
-    mystory = "是大家打架啊四大萨斯哦"
-    return mystory
+db_name = 'bar_data.db'
 @app.route('/')
 def index():
-    mystory = fstory()
-    return  flask.render_template("index.html",story=mystory)
-
+    return render_template('index.html')
+@app.route('/Type_information')
+def type_1():
+    conn = sqlite3.connect(db_name)
+    conn.row_factory = sqlite3.Row
+    cur = conn.cursor()
+    # get results from customers
+    cur.execute("select * from barlist")
+    rows = cur.fetchall()
+    conn.close()
+    return render_template('Type_information.html', rows=rows)
+@app.route('/Size_information')
+def Size():
+    conn = sqlite3.connect(db_name)
+    conn.row_factory = sqlite3.Row
+    cur = conn.cursor()
+    # get results from customers
+    cur.execute("select * from barsize")
+    rows = cur.fetchall()
+    conn.close()
+    return render_template('Size_information.html', rows=rows)
 if __name__ == '__main__':
     app.run()

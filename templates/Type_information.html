@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Type information</title>
+</head>
+<body>
+
+  <h1 style="text-align:center;">Polar Bears Tagged for Tracking</h1>
+
+  <table style="text-align:center;">
+    <thead>
+      <tr>
+        <th>Product_code</th>
+        <th>Vendor_code</th>
+        <th>Name</th>
+        <th>Retail_price</th>
+        <th>Base_unit</th>
+        <th>Country_of_Origin</th>
+        <th>ABV</th>
+        <th>Size</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for row in rows %}
+      <tr>
+        <td>{{ row[0] }}</td>
+        <td>{{ row[1] }}</td>
+        <td>{{ row[2] }}</td>
+        <td>{{ row[3] }}</td>
+        <td>{{ row[4] }}</td>
+        <td>{{ row[5] }}</td>
+        <td>{{ row[6] }}</td>
+        <td>{{ row[7] }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</body>
+</html>
