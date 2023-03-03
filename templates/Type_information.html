@@ -1,14 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Type information</title>
-</head>
-<body>
+    <meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
 
+        <title>Type information</title>
+</head>
+
+<body>
+<div class="container">
   <h1 style="text-align:center;">Polar Bears Tagged for Tracking</h1>
 
-  <table style="text-align:center;">
+
+  <table>
     <thead>
       <tr>
         <th>Product_code</th>
@@ -26,7 +32,7 @@
       <tr>
         <td>{{ row[0] }}</td>
         <td>{{ row[1] }}</td>
-        <td>{{ row[2] }}</td>
+        <td><a href={{ url_for('Size') }}>Orders>{{ row[2] }}</a></td>
         <td>{{ row[3] }}</td>
         <td>{{ row[4] }}</td>
         <td>{{ row[5] }}</td>
@@ -36,5 +42,6 @@
       {% endfor %}
     </tbody>
   </table>
+  </div>
 </body>
 </html>

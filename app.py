@@ -28,5 +28,7 @@ def Size():
     rows = cur.fetchall()
     conn.close()
     return render_template('Size_information.html', rows=rows)
+
+
 if __name__ == '__main__':
     app.run()

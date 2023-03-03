@@ -3,22 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <title>Type information</title>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-
+<div class="container">
   <h1 style="text-align:center;">Polar Bears Tagged for Tracking</h1>
 
   <table style="text-align:center;">
     <thead>
       <tr>
-        <th>Product_code</th>
-        <th>Vendor_code</th>
-        <th>Name</th>
-        <th>Retail_price</th>
-        <th>Base_unit</th>
-        <th>Country_of_Origin</th>
-        <th>ABV</th>
+        <th>Cost_storage</th>
+        <th>Cost_bottle</th>
+        <th>Cost_transportation</th>
+        <th>Percentage_markup</th>
+        <th>Discount_percentage</th>
         <th>Size</th>
+
       </tr>
     </thead>
     <tbody>
@@ -35,5 +35,6 @@
       {% endfor %}
     </tbody>
   </table>
+</div>
 </body>
 </html>
