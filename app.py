@@ -6,7 +6,15 @@ app = Flask(__name__)
 
 db_name = 'bar_data.db'
 
+# 定义处理HTTP 404错误的函数
+@app.errorhandler(404)
+def page_not_found(error):
+    return render_template('404.html'), 404
 
+# 定义处理数据库错误的函数
+@app.errorhandler(sqlite3.Error)
+def handle_database_error(error):
+    return render_template('error.html', message='Database error: {}'.format(str(error))), 500
 
 @app.route('/')
 def index():
